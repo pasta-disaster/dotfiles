@@ -1,4 +1,35 @@
-*
+# ignore everything except .gitignore
+/*
 !.gitignore
 
-!btop
+
+# reinclude specific conf dirs
+!/btop/
+!fuzzel/
+!kitty/
+!mako/
+!niri/
+!nvim/
+!scripts/
+!swayidle/
+!swaylock/
+!swayosd/
+!swayr/
+!waybar/
+
+#!btop/*
+#!fuzzel/*
+#!kitty/*
+#!mako/*
+#!niri/*
+#!nvim/*
+#!scripts/*
+#!swayidle/*
+#!swaylock/*
+#!swayosd/*
+#!swayr/*
+#!waybar/*
+
+# reinclude specific files
+!pavucontrol.ini
+!starship.*

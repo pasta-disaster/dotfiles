@@ -1,0 +1,174 @@
+"$schema" = 'https://starship.rs/config-schema.json'
+add_newline = true
+      
+# line: ─
+# left half circle: 
+# right half circle: 
+# left half circle thin: 
+# right half circle thin: 
+# right soft div: 
+# left soft div: 
+# left hard div: 
+# right hard div: 
+# upper left triangle: 
+# upper right triangle: 
+# lower left triangle: 
+# lower right triangle: 
+# honeycomb: 
+# honeycomb outline: 
+# nixos icon: 
+# popos icon: 
+# alien: 
+# electron: 󱀤
+# biohazard:  󰂧 
+# java: 
+# python: 
+# ruby: 
+# node: 
+
+# palette = "dark"
+
+# [palettes.dark]
+# base = "#24273a"
+# mantle = "#1e2030"
+# surface0 = "#363a4f"
+# surface1 = "#494d64"
+# surface2 = "#5b6078"
+# text = "#cad3f5"
+# rosewater = "#f4dbd6"
+# lavender = "#b7bdf8"
+# red = "#ed8796"
+# peach = "#f5a97f"
+# yellow = "#eed49f"
+# green = "#a6da95"
+# teal = "#8bd5ca"
+# blue = "#8aadf4"
+# mauve = "#c6a0f6"
+# flamingo = "#f0c6c6"
+
+format = """
+${custom.multiline_a}\
+${custom.vpn}\
+${custom.no_vpn}\
+${custom.broken_vpn}\
+$username\
+$hostname\
+$directory\
+$python\
+$java\
+$nodejs\
+$ruby\
+$rust\
+$git_branch\
+$git_status\
+${custom.line_terminator}
+${custom.multiline_b}\
+$character\
+"""
+
+[custom.multiline_a]
+description = "Top line of the multi-line decoration"
+format = "[╭]($style)"
+style = "fg:#494d64"
+when = true
+
+[custom.multiline_b]
+description = "Top line of the multi-line decoration"
+format = "[╰─]($style)"
+style = "fg:#494d64"
+when = true
+
+[custom.line_terminator]
+description = "Terminating character for a line, rounds off styles before switching to new line"
+format = "[](fg:prev_bg bg:none)"
+when = true
+
+[custom.vpn]
+description = "display when an openvpn3 connection is active"
+format = "[](fg:#aa5500)[ ]($style)"
+style = "fg:#b7bdf8 bg:#aa5500"
+when = """ ~/.config/scripts/vpn-session.sh """
+ignore_timeout = true
+
+[custom.no_vpn]
+description = "display when no openvpn3 connection is active"
+format = "[](fg:#363a4f)[ ]($style)"
+style = "fg:#b7bdf8 bg:#363a4f"
+when = """ ~/.config/scripts/no-vpn-session.sh """
+ignore_timeout = true
+
+[custom.broken_vpn]
+description = "display when an openvpn3 connection has timed out"
+format = "[](fg:#aa3333)[ ]($style)"
+style = "fg:#b7bdf8 bg:#aa3333"
+when = """ ~/.config/scripts/broken-vpn-session.sh """
+ignore_timeout = true
+
+[username]
+format = "[](fg:prev_bg bg:#494d64)[ $user ]($style)"
+#format = "[](fg:#363a4f)[   ](fg:#b7bdf8 bg:#363a4f)[](fg:#363a4f bg:#494d64)[ $user ]($style)"
+style_user = "fg:#b7bdf8 bg:#494d64"
+style_root = "fg:#ed8796 bg:bright-black"
+show_always = true
+
+[hostname]
+format = "[](fg:prev_bg bg:#363a4f)[ $hostname ]($style)[](fg:#363a4f)"
+style = "fg:#b7bdf8 bg:#363a4f"
+ssh_only = false
+
+[directory]
+format = "[──](fg:#494d64 bg:none)[](fg:#8aadf4)[ $path ]($style)"
+style = "fg:#494d64 bg:#8aadf4"
+truncation_length = 8
+truncation_symbol = "…/"
+truncate_to_repo = false
+
+[java]
+format = "[](fg:prev_bg bg:#5b6078)[ $symbol]($style bold)[ $version ]($style)"
+symbol = ""
+style = "fg:#ed8796 bg:#5b6078"
+
+[python]
+format = "[](fg:prev_bg bg:#5b6078)[ $symbol]($style bold)[ $version ]($style)"
+symbol = ""
+style = "fg:#f5a97f bg:#5b6078"
+
+[nodejs]
+format = "[](fg:prev_bg bg:#5b6078)[ $symbol]($style bold)[ $version ]($style)"
+symbol = ""
+style = "fg:#8aadf4 bg:#5b6078"
+
+[ruby]
+format = "[](fg:prev_bg bg:#5b6078)[ $symbol]($style bold)[ $version ]($style)"
+symbol = ""
+style = "fg:#f0c6c6 bg:#5b6078"
+
+[rust]
+format = "[](fg:prev_bg bg:#5b6078)[ $symbol]($style bold)[ $version ]($style)"
+symbol = ""
+style = "fg:#8bd5ca bg:#5b6078"
+
+[git_branch]
+symbol = ""
+format = "[](fg:prev_bg bg:#494d64)[ $symbol $branch ]($style)"
+style = "fg:#c6a0f6 bg:#494d64"
+
+[git_status]
+format = "[($all_status$ahead_behind) ]($style)"
+style = "fg:#c6a0f6 bg:#494d64"
+
+[character]
+format = "$symbol "
+success_symbol = "[λ](bold #a6da95)"
+error_symbol = "[×](bold #ed8796)"
+
+#[custom.no_vpn]
+#description = "display when no openvpn3 connection is active"
+#format = "peeves "
+#shell = ["~/src/bash/vpn-session.sh"]
+
+[gcloud]
+disabled = true
+
+[package]
+disabled = true
