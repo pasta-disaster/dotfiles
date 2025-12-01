@@ -132,6 +132,10 @@ workspace "misc" {
 }
 
 // left screen
+workspace "notes" {
+    open-on-output "DP-2"
+}
+
 workspace "hackerman" {
     open-on-output "DP-2"
 }
@@ -182,7 +186,7 @@ window-rule {
 
 window-rule {
     match app-id=r#"^obsidian$"# at-startup=true
-    open-on-workspace "utility"
+    open-on-workspace "notes"
 }
 
 
