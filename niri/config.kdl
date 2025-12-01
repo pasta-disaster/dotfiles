@@ -198,6 +198,7 @@ window-rule {
 //    open-on-workspace "work-browser"
 //}
 
+
 // block screen capture
 window-rule {
     match app-id=r#"^org\.keepassxc\.KeePassXC$"#
@@ -299,9 +300,8 @@ animations {
 // === KEYBINDS ===
 binds {
     Mod+Shift+Slash { show-hotkey-overlay; }
-    Mod+T hotkey-overlay-title="Open a Terminal: kitty" { spawn "kitty"; }
-    Ctrl+Space hotkey-overlay-title="Run an Application: fuzzel" { spawn "fuzzel"; }
-    Super+Alt+L hotkey-overlay-title="Lock the Screen: swaylock" { spawn "swaylock"; }
+    Mod+T hotkey-overlay-title="Open a Terminal" { spawn "kitty"; }
+    Ctrl+Space hotkey-overlay-title="Application Launcher" { spawn "fuzzel"; }
 
     // app switcher (replace with native one when released)
     // Alt+Tab hotkey-overlay-title="Switch windows" { spawn-sh "/home/mike/.config/scripts/niri-fuzzel-switcher"; }
@@ -464,7 +464,9 @@ binds {
 
     Mod+Escape allow-inhibiting=false { toggle-keyboard-shortcuts-inhibit; }
 
-    // quit
+    // session management 
+    Super+Alt+L hotkey-overlay-title="Lock the Screen" { spawn "swaylock"; }
+    Super+Alt+S hotkey-overlay-title="Suspend" { spawn-sh "swaylock -f && systemctl suspend"; }
     Mod+Shift+E { quit; }
     Ctrl+Alt+Delete { quit; }
 
