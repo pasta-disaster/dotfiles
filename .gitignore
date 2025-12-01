@@ -2,9 +2,8 @@
 /*
 !.gitignore
 
-
 # reinclude specific conf dirs
-!/btop/
+!btop/
 !fuzzel/
 !kitty/
 !mako/
@@ -16,19 +15,6 @@
 !swayosd/
 !swayr/
 !waybar/
-
-#!btop/*
-#!fuzzel/*
-#!kitty/*
-#!mako/*
-#!niri/*
-#!nvim/*
-#!scripts/*
-#!swayidle/*
-#!swaylock/*
-#!swayosd/*
-#!swayr/*
-#!waybar/*
 
 # reinclude specific files
 !pavucontrol.ini
