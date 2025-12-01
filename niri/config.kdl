@@ -156,71 +156,45 @@ workspace "personal-browser" {
 // === WINDOW RULES ===
 // main screen
 window-rule {
-    match app-id=r#"^Slack$"#
-    match at-startup=true
-    //open-on-output "eDP-1"
+    match app-id=r#"^Slack$"# at-startup=true
+    match app-id=r#"^vesktop$"# at-startup=true
+    match app-id=r#"^org\.signal\.Signal$"# at-startup=true
     open-on-workspace "communication"
 }
 
 window-rule {
-    match app-id=r#"^vesktop$"#
-    match at-startup=true
-    //open-on-output "eDP-1"
-    open-on-workspace "communication"
-}
-
-window-rule {
-    match app-id=r#"^org\.signal\.Signal$"#
-    match at-startup=true
-    //open-on-output "eDP-1"
-    open-on-workspace "communication"
-}
-
-window-rule {
-    match app-id=r#"^1password$"#
+    match app-id=r#"^1password$"# at-startup=true
     exclude title=r#"^Quick Access — 1Password$"#
-    match at-startup=true
-    //open-on-output "eDP-1"
-    open-on-workspace "communication"
+    open-on-workspace "misc"
 }
 
 // left screen
 window-rule {
-    match app-id=r#"^kitty$"#
-    match at-startup=true
-    //open-on-output "DP-2"
+    match app-id=r#"^kitty$"# at-startup=true
     open-on-workspace "hackerman"
 }
 
 // TODO: add zen work profile window rule
 //window-rule {
-//    match app-id=r#"^$"#
-//    match at-startup=true
-//    //open-on-output "DP-2"
+//    match app-id=r#"^$"# at-startup=true
 //    open-on-workspace "work-browser"
 //}
 
 window-rule {
-    match app-id=r#"^obsidian$"#
-    match at-startup=true
-    //open-on-output "DP-2"
+    match app-id=r#"^obsidian$"# at-startup=true
     open-on-workspace "utility"
 }
 
 
 // right screen
 window-rule {
-    match app-id=r#"^Cursor$"#
-    match at-startup=true
-    //open-on-output "DP-4"
+    match app-id=r#"^Cursor$"# at-startup=true
     open-on-workspace "code"
 }
 
 // TODO: add zen personal profile window rule
 //window-rule {
-//    match app-id=r#"^$"#
-//    match at-startup=true
-//    //open-on-output "DP-2"
+//    match app-id=r#"^$"# at-startup=true
 //    open-on-workspace "work-browser"
 //}
 
