@@ -17,6 +17,9 @@
 !swayr/
 !waybar/
 
+# reexclude specific dirs
+DankMaterialShell/plugins
+
 # reinclude specific files
 !pavucontrol.ini
 !starship.*
