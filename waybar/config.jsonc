@@ -26,21 +26,25 @@
 
     "modules-right": [
       "custom/spacer1",
+
       "cpu",
       "temperature",
-      "custom/nvidia",
+      "group/monitor",
+      //"custom/nvidia",
       //"memory#ram",
       //"memory#swap",
-      "group/storage",
-      "disk",
+      //"group/storage",
+      //"disk",
       "network#info",
       "custom/spacer2",
-      "pulseaudio#input",
-      "pulseaudio#output",
+      "group/audio",
+      //"pulseaudio#input",
+      //"pulseaudio#output",
       "custom/spacer3",
-      "hyprland/language",
-      "backlight",
-      "custom/battery",
+      //"hyprland/language",
+      "group/power",
+      //"backlight",
+      //"custom/battery",
       "custom/spacer4",
       "custom/weather",
       "clock",
@@ -106,8 +110,8 @@
         //"click-to-reveal": "false"
       },
       "modules": ["memory#ram", 
-        "memory#swap" 
-        // "disk"
+        "memory#swap", 
+        "disk"
       ]
     },
 
@@ -120,6 +124,27 @@
         //"click-to-reveal": "false"
       },
       "modules": ["custom/battery", "backlight"]
+    },
+
+    "group/audio": {
+      "orientation": "horizontal",
+      "drawer": {
+        "transition-duration": "500",
+        "transition-left-to-right": "true",
+        "children-class": "drawer-child"
+        //"click-to-reveal": "false"
+      },
+      "modules": ["pulseaudio#output", "pulseaudio#input"]
+    },
+
+    "group/monitor": {
+      "orientation": "horizontal",
+      "drawer": {
+        "transition-duration": "500",
+	"transition-left-to-right": "true",
+	"children-class": "drawer-child"
+      },
+      "modules": ["memory#ram", "memory#swap", "custom/nvidia", "disk"]
     },
 
     "backlight": {
