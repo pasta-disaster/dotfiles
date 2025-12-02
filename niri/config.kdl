@@ -99,8 +99,9 @@ overview {
 }
 
 // === STARTUP ===
-spawn-at-startup "swayosd-server"
-spawn-at-startup "niriswitcher"
+spawn-at-startup "dms"
+//spawn-at-startup "swayosd-server"
+//spawn-at-startup "niriswitcher"
 spawn-at-startup "appimagelauncherd"
 spawn-at-startup "kitty"
 spawn-at-startup "kitty"
@@ -110,8 +111,8 @@ spawn-sh-at-startup "flatpak run com.slack.Slack"
 spawn-sh-at-startup "flatpak run dev.vencord.Vesktop"
 spawn-sh-at-startup "flatpak run org.signal.Signal"
 spawn-sh-at-startup "flatpak run md.obsidian.Obsidian"
-spawn-sh-at-startup "swaybg -i ~/.config/wallpapers/pb5d9d1uif1d1.jpeg"
-spawn-sh-at-startup "swayidle -C ~/.config/swayidle/swayidle.conf"
+//spawn-sh-at-startup "swaybg -i ~/.config/wallpapers/pb5d9d1uif1d1.jpeg"
+//spawn-sh-at-startup "swayidle -C ~/.config/swayidle/swayidle.conf"
 
 
 
@@ -179,7 +180,7 @@ window-rule {
     open-on-workspace "hackerman"
 }
 
-// TODO: add zen work profile window rule
+// 56TODO: add zen work profile window rule
 //window-rule {
 //    match app-id=r#"^$"# at-startup=true
 //    open-on-workspace "work-browser"
@@ -311,12 +312,12 @@ animations {
 binds {
     Mod+Shift+Slash { show-hotkey-overlay; }
     Mod+T hotkey-overlay-title="Open a Terminal" { spawn "kitty"; }
-    Ctrl+Space hotkey-overlay-title="Application Launcher" { spawn "fuzzel"; }
+    //Ctrl+Space hotkey-overlay-title="Application Launcher" { spawn "fuzzel"; }
 
     // app switcher (replace with native one when released)
     // Alt+Tab hotkey-overlay-title="Switch windows" { spawn-sh "/home/mike/.config/scripts/niri-fuzzel-switcher"; }
-    Alt+Tab hotkey-overlay-title="Switch windows" repeat=false { spawn-sh "niriswitcherctl show --window"; }
-    Alt+Shift+Tab hotkey-overlay-title="Switch windows" repeat=false { spawn-sh "niriswitcherctl show --window"; }
+    //Alt+Tab hotkey-overlay-title="Switch windows" repeat=false { spawn-sh "niriswitcherctl show --window"; }
+    //Alt+Shift+Tab hotkey-overlay-title="Switch windows" repeat=false { spawn-sh "niriswitcherctl show --window"; }
 
     Ctrl+Shift+Space hotkey-overlay-title="1Password quick access" { spawn-sh "1password --quick-access"; }
 
@@ -475,8 +476,8 @@ binds {
     Mod+Escape allow-inhibiting=false { toggle-keyboard-shortcuts-inhibit; }
 
     // session management 
-    Super+Alt+L hotkey-overlay-title="Lock the Screen" { spawn "swaylock"; }
-    Super+Alt+S hotkey-overlay-title="Suspend" { spawn-sh "swaylock -f && systemctl suspend"; }
+    //Super+Alt+L hotkey-overlay-title="Lock the Screen" { spawn "swaylock"; }
+    //Super+Alt+S hotkey-overlay-title="Suspend" { spawn-sh "swaylock -f && systemctl suspend"; }
     Mod+Shift+E { quit; }
     Ctrl+Alt+Delete { quit; }
 
