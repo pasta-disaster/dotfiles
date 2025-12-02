@@ -101,6 +101,7 @@ overview {
 // === STARTUP ===
 spawn-at-startup "swayosd-server"
 spawn-at-startup "niriswitcher"
+spawn-at-startup "appimagelauncherd"
 spawn-at-startup "kitty"
 spawn-at-startup "kitty"
 spawn-at-startup "1password"
@@ -202,10 +203,15 @@ window-rule {
 //    open-on-workspace "work-browser"
 //}
 
+// force floating windows
+window-rule {
+    match app-id=r#"^AppImageLauncher$"# title=r#"Desktop Integration"#
+    open-floating true
+}
+
 
 // block screen capture
 window-rule {
-    match app-id=r#"^org\.keepassxc\.KeePassXC$"#
     match app-id=r#"^org\.gnome\.World\.Secrets$"#
     match app-id=r#"^org\.signal\.Signal$"#
     match app-id=r#"^1password$"#
