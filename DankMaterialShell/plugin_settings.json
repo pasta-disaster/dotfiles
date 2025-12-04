@@ -1,0 +1,16 @@
+{
+  "alarmClock": {
+    "enabled": true
+  },
+  "wallpaperDiscovery": {
+    "enabled": true,
+    "downloadLocation": "~/.config/wallpapers",
+    "lastWallpaperUsed": "unsplash"
+  },
+  "dankBatteryAlerts": {
+    "enabled": true
+  },
+  "commandRunner": {
+    "enabled": true
+  }
+}
