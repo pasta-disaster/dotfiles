@@ -485,6 +485,14 @@ binds {
     Mod+Shift+P { power-off-monitors; }
 }
 
+
+// === INCLUDES ===
+// dms includes
+include "alttab.kdl"
+include "binds.kdl"
+//include "colors.kdl"
+//include "layout.kdl"
+
 // === DEBUG ===
 // enable notification actions and window activation from noctalia
 debug {
