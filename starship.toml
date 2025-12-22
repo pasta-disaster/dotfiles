@@ -124,33 +124,33 @@ truncation_symbol = "…/"
 truncate_to_repo = false
 
 [java]
-format = "[](fg:prev_bg bg:#5b6078)[ $symbol]($style bold)[ $version ]($style)"
+format = "[](fg:prev_bg bg:#5b6078)[ $symbol]($style bold)[ $version ]($style)"
 symbol = ""
 style = "fg:#ed8796 bg:#5b6078"
 
 [python]
-format = "[](fg:prev_bg bg:#5b6078)[ $symbol]($style bold)[ $version ]($style)"
+format = "[](fg:prev_bg bg:#5b6078)[ $symbol]($style bold)[ $version ]($style)"
 symbol = ""
 style = "fg:#f5a97f bg:#5b6078"
 
 [nodejs]
-format = "[](fg:prev_bg bg:#5b6078)[ $symbol]($style bold)[ $version ]($style)"
+format = "[](fg:prev_bg bg:#5b6078)[ $symbol]($style bold)[ $version ]($style)"
 symbol = ""
 style = "fg:#8aadf4 bg:#5b6078"
 
 [ruby]
-format = "[](fg:prev_bg bg:#5b6078)[ $symbol]($style bold)[ $version ]($style)"
+format = "[](fg:prev_bg bg:#5b6078)[ $symbol]($style bold)[ $version ]($style)"
 symbol = ""
 style = "fg:#f0c6c6 bg:#5b6078"
 
 [rust]
-format = "[](fg:prev_bg bg:#5b6078)[ $symbol]($style bold)[ $version ]($style)"
+format = "[](fg:prev_bg bg:#5b6078)[ $symbol]($style bold)[ $version ]($style)"
 symbol = ""
 style = "fg:#8bd5ca bg:#5b6078"
 
 [git_branch]
 symbol = ""
-format = "[](fg:prev_bg bg:#494d64)[ $symbol $branch ]($style)"
+format = "[](fg:prev_bg bg:#494d64)[ $symbol $branch ]($style)"
 style = "fg:#c6a0f6 bg:#494d64"
 
 [git_status]

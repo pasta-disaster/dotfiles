@@ -100,6 +100,9 @@ overview {
 
 // === STARTUP ===
 spawn-at-startup "dms"
+spawn-sh-at-startup "wl-paste --type text --watch cliphist store"
+spawn-sh-at-startup "wl-paste --type image --watch cliphist store"
+spawn-sh-at-startup "wl-clip-persist --clipboard regular"
 //spawn-at-startup "swayosd-server"
 //spawn-at-startup "niriswitcher"
 spawn-at-startup "appimagelauncherd"
@@ -207,6 +210,8 @@ window-rule {
 // force floating windows
 window-rule {
     match app-id=r#"^AppImageLauncher$"# title=r#"Desktop Integration"#
+    match app-id=r#"^org.gnome.Calculator$"#
+    match app-id=r#"^org.gnome.Nautilus$"# title=r#"^Add Folder to Workspace$"# // cursor folder selection
     open-floating true
 }
 

@@ -17,9 +17,14 @@
 !swayr/
 !waybar/
 
-# reexclude specific dirs
-DankMaterialShell/plugins
-
 # reinclude specific files
 !pavucontrol.ini
 !starship.*
+
+# reexclude specific dirs
+DankMaterialShell/plugins
+
+# reexclude specific files
+btop/btop.log
+
+
