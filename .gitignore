@@ -19,3 +19,7 @@
 # reinclude specific files
 !pavucontrol.ini
 !starship.*
+
+#reexclude specific files
+*.log
+niri/dms/*.kdl
