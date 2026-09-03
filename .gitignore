@@ -27,3 +27,5 @@ niri/dms
 #reexclude specific files
 DankMaterialShell/firefox.css
 *.log
+kitty/dank-tabs.conf
+kitty/dank-theme.conf
