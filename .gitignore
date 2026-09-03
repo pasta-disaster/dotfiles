@@ -20,6 +20,12 @@
 !pavucontrol.ini
 !starship.*
 
+# reexclude specific dirs
+DankMaterialShell/plugins
+niri/dms
+
 #reexclude specific files
+DankMaterialShell/firefox.css
 *.log
-niri/dms/*.kdl
+kitty/dank-tabs.conf
+kitty/dank-theme.conf
