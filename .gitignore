@@ -22,8 +22,8 @@
 
 # reexclude specific dirs
 DankMaterialShell/plugins
+niri/dms
 
 #reexclude specific files
 DankMaterialShell/firefox.css
 *.log
-niri/dms/*
