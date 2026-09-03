@@ -1,31 +1,65 @@
-# ignore everything except .gitignore
+# ignore by default
 /*
 !.gitignore
 
-# reinclude specific conf dirs
+# standalone configs
+!pavucontrol.ini
+!starship.toml
+!starship.toml.*
+
+# whitelisted directories
 !btop/
 !fuzzel/
+!glow/
+!herdr/
 !kitty/
+!lazygit/
 !mako/
 !niri/
+!noodle/
 !nvim/
+!rura/
 !scripts/
+!superfile/
 !swayidle/
 !swaylock/
 !swayosd/
 !swayr/
+!taskdog/
 !waybar/
+!wlogout/
+!zoxide/
 
-# reinclude specific files
-!pavucontrol.ini
-!starship.*
-
-# reexclude specific dirs
-DankMaterialShell/plugins
-niri/dms
-
-#reexclude specific files
-DankMaterialShell/firefox.css
+# junk 
 *.log
+*.sock
+*.swp
+*.tmp
+*~
+*.bak
+*.backup*
+*.original
+*.no
+
+# app-specific exclusions
+
+# herdr
+herdr/session.json
+herdr/.session-history.json
+herdr/release-notes.json
+herdr/plugins.json
+herdr/.plugins.lock
+herdr/plugins/github/
+herdr/**/target/
+herdr/**/bin/
+
+# kitty
 kitty/dank-tabs.conf
 kitty/dank-theme.conf
+
+# niri
+niri/dms/
+
+# noodle
+noodle/update-cache.json
+
