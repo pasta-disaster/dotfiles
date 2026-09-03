@@ -26,4 +26,4 @@ DankMaterialShell/plugins
 #reexclude specific files
 DankMaterialShell/firefox.css
 *.log
-niri/dms/*.kdl
+niri/dms/*
