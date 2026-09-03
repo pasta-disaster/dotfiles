@@ -1,0 +1,67 @@
+* {
+	background-image: none;
+	box-shadow: none;
+}
+
+@define-color outer #b7bdf8;
+@define-color inner #4e5060;
+
+window {
+	background-color: rgba(36, 39, 58, 0.90);
+	border-radius: 15px;
+	border-color: #f00;
+	border-width: 1px;
+}
+
+button {
+	border-radius: 0;
+	border-color: #b7bdf8;
+	text-decoration-color: #cad3f5;
+	color: #cad3f5;
+	background-color: #1e2030;
+	border-style: solid;
+	border-width: 1px;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: 25%;
+}
+
+button:focus, button:active, button:hover {
+	/* 20% Overlay 2, 80% mantle */
+	background-color: rgb(53, 57, 75);
+	outline-style: none;
+}
+
+#lock {
+    background-image: url("/home/mike/.config/wlogout/icons/lock.svg");
+    border-radius: 10px 0 0 0;
+    border-color: @outer @inner @inner @outer;
+}
+
+#logout {
+    background-image: url("/home/mike/.config/wlogout/icons/logout.svg");
+    border-color: @outer @inner @inner @inner;
+}
+
+#suspend {
+    background-image: url("/home/mike/.config/wlogout/icons/suspend.svg");
+    border-radius: 0 10px 0 0;
+    border-color: @outer @outer @inner @inner;
+}
+
+#hibernate {
+    background-image: url("/home/mike/.config/wlogout/icons/hibernate.svg");
+    border-radius: 0 0 0 10px;
+    border-color: @inner @inner @outer @outer;
+}
+
+#shutdown {
+    background-image: url("/home/mike/.config/wlogout/icons/shutdown.svg");
+    border-color: @inner @inner @outer @inner;
+}
+
+#reboot {
+    background-image: url("/home/mike/.config/wlogout/icons/reboot.svg");
+    border-radius: 0 0 10px 0;
+    border-color: @inner @outer @outer @inner;
+}
