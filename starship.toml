@@ -46,11 +46,39 @@ add_newline = true
 # mauve = "#c6a0f6"
 # flamingo = "#f0c6c6"
 
+#format = """
+#${custom.multiline_a}\
+#$time\
+#${custom.no_vpn}\
+#${custom.vpn_katoa}\
+#${custom.vpn_uru}\
+#${custom.vpn_koru}\
+#${custom.vpn_ltk}\
+#${custom.ssh_tunnel}\
+#$username\
+#$hostname\
+#$directory\
+#$python\
+#$java\
+#$nodejs\
+#$ruby\
+#$rust\
+#$git_branch\
+#$git_status\
+#${custom.line_terminator}
+#${custom.multiline_b}\
+#$character\
+#"""
+
+
 format = """
 ${custom.multiline_a}\
-${custom.vpn}\
-${custom.no_vpn}\
-${custom.broken_vpn}\
+$time\
+${custom.vpn_katoa}\
+${custom.vpn_uru}\
+${custom.vpn_koru}\
+${custom.vpn_ltk}\
+${custom.ssh_tunnel}\
 $username\
 $hostname\
 $directory\
@@ -72,6 +100,13 @@ format = "[╭]($style)"
 style = "fg:#494d64"
 when = true
 
+[time]
+disabled = false
+format = '[](fg:#363a4f)[ $time ]($style)'
+style = "fg:#b7bdf8 bg:#363a4f"
+time_format = '%T'
+utc_time_offset = '-5'
+
 [custom.multiline_b]
 description = "Top line of the multi-line decoration"
 format = "[╰─]($style)"
@@ -83,26 +118,50 @@ description = "Terminating character for a line, rounds off styles before switch
 format = "[](fg:prev_bg bg:none)"
 when = true
 
-[custom.vpn]
-description = "display when an openvpn3 connection is active"
-format = "[](fg:#aa5500)[ ]($style)"
-style = "fg:#b7bdf8 bg:#aa5500"
-when = """ ~/.config/scripts/vpn-session.sh """
-ignore_timeout = true
-
 [custom.no_vpn]
-description = "display when no openvpn3 connection is active"
-format = "[](fg:#363a4f)[ ]($style)"
+command = "echo ' '"
+when = "bash -c '! ip link show type tun 2>/dev/null | grep -q tun'"
 style = "fg:#b7bdf8 bg:#363a4f"
-when = """ ~/.config/scripts/no-vpn-session.sh """
-ignore_timeout = true
+format = "[](fg:prev_bg bg:#363a4f)[ $output ]($style)"
+shell = ["bash", "--noprofile", "--norc"]
 
-[custom.broken_vpn]
-description = "display when an openvpn3 connection has timed out"
-format = "[](fg:#aa3333)[ ]($style)"
-style = "fg:#b7bdf8 bg:#aa3333"
-when = """ ~/.config/scripts/broken-vpn-session.sh """
-ignore_timeout = true
+[custom.vpn_katoa]
+command = "echo ' '"
+when = "cat ~/.openvpn3/sessions | grep katoa"
+style = "fg:#b7bdf8 bg:#3f28a8"
+format = "[](fg:prev_bg bg:#3f28a8)[ $output ]($style)"
+shell = ["bash", "--noprofile", "--norc"]
+
+[custom.vpn_uru]
+command = "echo ' '"
+when = "cat ~/.openvpn3/sessions | grep uru"
+style = "fg:#b7bdf8 bg:#1a29ce"
+format = "[](fg:prev_bg bg:#1a29ce)[ $output ]($style)"
+shell = ["bash", "--noprofile", "--norc"]
+
+[custom.vpn_koru]
+command = "echo ' '"
+when = "cat ~/.openvpn3/sessions | grep koru"
+style = "fg:#b7bdf8 bg:#01591a"
+format = "[](fg:prev_bg bg:#01591a)[ $output ]($style)"
+shell = ["bash", "--noprofile", "--norc"]
+
+[custom.vpn_ltk]
+command = "echo ' '"
+when = "cat ~/.openvpn3/sessions | grep lingotek"
+style = "fg:#b7bdf8 bg:#6b011b"
+format = "[](fg:prev_bg bg:#6b011b)[ $output ]($style)"
+shell = ["bash", "--noprofile", "--norc"]
+
+[custom.ssh_tunnel]
+description = "Display when an SSH tunnel is open"
+command = "echo 'tunnel'"
+when = """
+for f in ~/.ssh/tunnels/*.pid; do
+    [ -f "$f" ] && kill -0 $(cat "$f") 2>/dev/null && exit 0
+done
+exit 1
+"""
 
 [username]
 format = "[](fg:prev_bg bg:#494d64)[ $user ]($style)"

@@ -1,0 +1,12 @@
+# Nook popup dimensions
+[toggle]
+width = "85%"
+height = "85%"
+
+[toggle-small]
+width = "65%"
+height = "35%"
+
+[toggle-tiny]
+width = "65%"
+height = "10%"

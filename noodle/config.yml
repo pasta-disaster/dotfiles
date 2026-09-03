@@ -1,0 +1,5 @@
+theme: catppuccin-macchiato
+layout: stacked
+confirm_undo_all: true
+collections:
+  - /home/mike/.noodle
