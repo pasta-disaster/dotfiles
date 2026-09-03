@@ -3,6 +3,12 @@
 // Check the wiki for a full description of the configuration:
 // https://yalter.github.io/niri/Configuration:-Introduction
 
+// === ENVIRONMENT ===
+environment {
+    QT_QPA_PLATFORMTHEME "gtk3"
+    XDG_SESSION_TYPE "wayland"
+}
+
 // Input device configuration.
 // Find the full list of options on the wiki:
 // https://yalter.github.io/niri/Configuration:-Input
@@ -12,6 +18,7 @@ input {
             // If this section is empty, niri will fetch xkb settings
             // from org.freedesktop.locale1. You can control these using
             // localectl set-x11-keymap.
+            options "compose:ralt"
         }
 
         numlock
@@ -30,17 +37,17 @@ input {
 }
 
 // === OUTPUTS ===
-output "eDP-1" {
-    position x=0 y=0
-}
+//output "eDP-1" {
+//    position x=0 y=0
+//}
 
-output "DP-2" {
-    position x=-960 y=-1080
-}
+//output "DP-2" {
+//    position x=-960 y=-1080
+//}
 
-output "DP-4" {
-    position x=960 y=-1080
-}
+//output "DP-4" {
+//    position x=960 y=-1080
+//}
 
 
 // === LAYOUT ===
@@ -99,19 +106,24 @@ overview {
 }
 
 // === STARTUP ===
-spawn-at-startup "swayosd-server"
-spawn-at-startup "niriswitcher"
+spawn-at-startup "dms"
+//spawn-sh-at-startup "wl-paste --type text --watch cliphist store"
+//spawn-sh-at-startup "wl-paste --type image --watch cliphist store"
+//spawn-sh-at-startup "wl-clip-persist --clipboard regular"
+//spawn-at-startup "swayosd-server"
+//spawn-at-startup "niriswitcher"
 spawn-at-startup "appimagelauncherd"
 spawn-at-startup "kitty"
 spawn-at-startup "kitty"
 spawn-at-startup "1password"
 spawn-at-startup "cursor"
-spawn-sh-at-startup "flatpak run com.slack.Slack"
-spawn-sh-at-startup "flatpak run dev.vencord.Vesktop"
-spawn-sh-at-startup "flatpak run org.signal.Signal"
-spawn-sh-at-startup "flatpak run md.obsidian.Obsidian"
-spawn-sh-at-startup "swaybg -i ~/.config/wallpapers/pb5d9d1uif1d1.jpeg"
-spawn-sh-at-startup "swayidle -C ~/.config/swayidle/swayidle.conf"
+//spawn-sh-at-startup "flatpak run com.slack.Slack"
+spawn-sh-at-startup "ferdium"
+spawn-sh-at-startup "vesktop"
+spawn-sh-at-startup "signal-desktop"
+spawn-sh-at-startup "obsidian"
+//spawn-sh-at-startup "swaybg -i ~/.config/wallpapers/pb5d9d1uif1d1.jpeg"
+//spawn-sh-at-startup "swayidle -C ~/.config/swayidle/swayidle.conf"
 
 
 
@@ -125,45 +137,47 @@ screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
 // === WORKSPACES ===
 // main screen
 workspace "communication" {
-    open-on-output "eDP-1"
+    open-on-output "eDP-2"
 }
 
 workspace "misc" {
-    open-on-output "eDP-1"
+    open-on-output "eDP-2"
 }
 
 // left screen
 workspace "notes" {
-    open-on-output "DP-2"
+    open-on-output "DP-3"
 }
 
 workspace "hackerman" {
-    open-on-output "DP-2"
+    open-on-output "DP-3"
 }
 
 workspace "work-browser" {
-    open-on-output "DP-2"
+    open-on-output "DP-3"
 }
 
 workspace "utility" {
-    open-on-output "DP-2"
+    open-on-output "DP-3"
 }
 
 // right screen
 workspace "code" {
-    open-on-output "DP-4"
+    open-on-output "DP-2"
 }
 
 workspace "personal-browser" {
-    open-on-output "DP-4"
+    open-on-output "DP-2"
 }
 
 // === WINDOW RULES ===
 // main screen
 window-rule {
+    match app-id=r#"^ferdium$"# at-startup=true
     match app-id=r#"^Slack$"# at-startup=true
     match app-id=r#"^vesktop$"# at-startup=true
-    match app-id=r#"^org\.signal\.Signal$"# at-startup=true
+    match app-id=r#"^signal$"# at-startup=true
+//    match app-id=r#"^org\.signal\.Signal$"# at-startup=true
     open-on-workspace "communication"
 }
 
@@ -193,7 +207,7 @@ window-rule {
 
 // right screen
 window-rule {
-    match app-id=r#"^Cursor$"# at-startup=true
+    match app-id=r#"^cursor$"# at-startup=true
     open-on-workspace "code"
 }
 
@@ -202,6 +216,11 @@ window-rule {
 //    match app-id=r#"^$"# at-startup=true
 //    open-on-workspace "work-browser"
 //}
+
+window-rule {
+    match app-id=r#"^krita"#
+    open-maximized true
+}
 
 // force floating windows
 window-rule {
@@ -214,7 +233,7 @@ window-rule {
 window-rule {
     match app-id=r#"^org\.gnome\.World\.Secrets$"#
     match app-id=r#"^org\.signal\.Signal$"#
-    match app-id=r#"^1password$"#
+    //match app-id=r#"^1password$"#
 
     block-out-from "screen-capture"
 }
@@ -484,8 +503,20 @@ binds {
     Mod+Shift+P { power-off-monitors; }
 }
 
+
+// === INCLUDES ===
+// dms includes
+include "alttab.kdl"
+include "binds.kdl"
+//include "colors.kdl"
+//include "layout.kdl"
+include "dms/cursor.kdl"
+include "dms/outputs.kdl"
+
 // === DEBUG ===
 // enable notification actions and window activation from noctalia
 debug {
   honor-xdg-activation-with-invalid-serial
 }
+
+
