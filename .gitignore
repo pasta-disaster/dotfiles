@@ -4,7 +4,6 @@
 
 # reinclude specific conf dirs
 !btop/
-!DankMaterialShell/
 !fuzzel/
 !kitty/
 !mako/
