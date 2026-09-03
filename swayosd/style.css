@@ -1,0 +1,46 @@
+@define-color background  #24273a;
+@define-color border      #b7bdf8;
+@define-color text        #cad3f5;
+@define-color muted       #6e738d;
+@define-color accent      #c6a0f6;
+
+window#osd {
+  padding: 5px;
+  border-radius: 20px;
+  border: 1px solid @muted;
+  background: @background;
+}
+
+image,label {
+  color: @text;
+  font-size: 16px;
+}
+
+progressbar:disabled, image:disabled {
+  opacity: 0.5;
+}
+
+progressbar {
+  min-height: 6px;
+  border-radius: 999px;
+  background: transparent;
+  border: none;
+}
+
+trough {
+  min-height: inherit;
+  border-radius: inherit;
+  border: none;
+  background: @border;
+}
+
+progress {
+  min-height: inherit;
+  border-radius: inherit;
+  border: none;
+  background: @accent;
+}
+
+#container {
+  margin: 6px;
+}
