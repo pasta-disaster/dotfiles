@@ -1,5 +1,5 @@
 binds {
-    Ctrl+Space hotkey-overlay-title="Application Launcher" { 
+    Super+D hotkey-overlay-title="Application Launcher" { 
         spawn "dms" "ipc" "call" "spotlight" "toggle"; 
     }
 
