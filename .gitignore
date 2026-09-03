@@ -23,9 +23,10 @@
 
 # reexclude specific dirs
 DankMaterialShell/plugins
+niri/dms
 
-# reexclude specific files
+#reexclude specific files
+DankMaterialShell/firefox.css
 *.log
-niri/dms/*
-
-
+kitty/dank-tabs.conf
+kitty/dank-theme.conf
