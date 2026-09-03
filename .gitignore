@@ -25,6 +25,7 @@
 DankMaterialShell/plugins
 
 # reexclude specific files
-btop/btop.log
+*.log
+niri/dms/*
 
 
