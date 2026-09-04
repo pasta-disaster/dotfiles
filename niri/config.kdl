@@ -334,8 +334,8 @@ binds {
 
     // app switcher (replace with native one when released)
     // Alt+Tab hotkey-overlay-title="Switch windows" { spawn-sh "/home/mike/.config/scripts/niri-fuzzel-switcher"; }
-    Alt+Tab hotkey-overlay-title="Switch windows" repeat=false { spawn-sh "niriswitcherctl show --window"; }
-    Alt+Shift+Tab hotkey-overlay-title="Switch windows" repeat=false { spawn-sh "niriswitcherctl show --window"; }
+    //Alt+Tab hotkey-overlay-title="Switch windows" repeat=false { spawn-sh "niriswitcherctl show --window"; }
+    //Alt+Shift+Tab hotkey-overlay-title="Switch windows" repeat=false { spawn-sh "niriswitcherctl show --window"; }
 
     Ctrl+Shift+Space hotkey-overlay-title="1Password quick access" { spawn-sh "1password --quick-access"; }
 
