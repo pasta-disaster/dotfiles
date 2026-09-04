@@ -37,15 +37,15 @@ input {
 }
 
 // === OUTPUTS ===
-//output "eDP-1" {
+//output "eDP-2" {
 //    position x=0 y=0
 //}
 
-//output "DP-2" {
+//output "DP-3" {
 //    position x=-960 y=-1080
 //}
 
-//output "DP-4" {
+//output "DP-2" {
 //    position x=960 y=-1080
 //}
 
@@ -72,8 +72,6 @@ layout {
         // off
 
         width 2
-        // active-color "#7fc8ff"
-        // inactive-color "#505050"
         active-gradient from="#505050" to="#7fc8ff" angle=45 relative-to="workspace-view"
         inactive-gradient from="#505050" to="#808080" angle=45 relative-to="workspace-view"
     }
@@ -87,15 +85,12 @@ layout {
         inactive-color "#505050"
 
         urgent-color "#9b0000"
-        // active-gradient from="#e5989b" to="#ffb4a2" angle=45 relative-to="workspace-view" in="oklch longer hue"
-        // inactive-gradient from="#505050" to="#808080" angle=45 relative-to="workspace-view"
     }
 }
 
 prefer-no-csd
 
 cursor {
-  // xcursor-theme "Sunity-cursors-white"
   xcursor-theme "Sunity-cursors"
   xcursor-size 28
   hide-when-typing
@@ -107,25 +102,15 @@ overview {
 
 // === STARTUP ===
 spawn-at-startup "dms"
-//spawn-sh-at-startup "wl-paste --type text --watch cliphist store"
-//spawn-sh-at-startup "wl-paste --type image --watch cliphist store"
-//spawn-sh-at-startup "wl-clip-persist --clipboard regular"
-//spawn-at-startup "swayosd-server"
-//spawn-at-startup "niriswitcher"
 spawn-at-startup "appimagelauncherd"
 spawn-at-startup "kitty"
 spawn-at-startup "kitty"
 spawn-at-startup "1password"
 spawn-at-startup "cursor"
-//spawn-sh-at-startup "flatpak run com.slack.Slack"
 spawn-sh-at-startup "ferdium"
 spawn-sh-at-startup "vesktop"
 spawn-sh-at-startup "signal-desktop"
 spawn-sh-at-startup "obsidian"
-//spawn-sh-at-startup "swaybg -i ~/.config/wallpapers/pb5d9d1uif1d1.jpeg"
-//spawn-sh-at-startup "swayidle -C ~/.config/swayidle/swayidle.conf"
-
-
 
 hotkey-overlay {
     // skip-at-startup
@@ -177,7 +162,6 @@ window-rule {
     match app-id=r#"^Slack$"# at-startup=true
     match app-id=r#"^vesktop$"# at-startup=true
     match app-id=r#"^signal$"# at-startup=true
-//    match app-id=r#"^org\.signal\.Signal$"# at-startup=true
     open-on-workspace "communication"
 }
 
@@ -233,7 +217,7 @@ window-rule {
 window-rule {
     match app-id=r#"^org\.gnome\.World\.Secrets$"#
     match app-id=r#"^org\.signal\.Signal$"#
-    //match app-id=r#"^1password$"#
+    match app-id=r#"^1password$"#
 
     block-out-from "screen-capture"
 }
@@ -332,36 +316,11 @@ binds {
     Mod+T hotkey-overlay-title="Open a Terminal" { spawn "kitty"; }
     Ctrl+Space hotkey-overlay-title="Application Launcher" { spawn "fuzzel"; }
 
-    // app switcher (replace with native one when released)
-    // Alt+Tab hotkey-overlay-title="Switch windows" { spawn-sh "/home/mike/.config/scripts/niri-fuzzel-switcher"; }
-    //Alt+Tab hotkey-overlay-title="Switch windows" repeat=false { spawn-sh "niriswitcherctl show --window"; }
-    //Alt+Shift+Tab hotkey-overlay-title="Switch windows" repeat=false { spawn-sh "niriswitcherctl show --window"; }
-
     Ctrl+Shift+Space hotkey-overlay-title="1Password quick access" { spawn-sh "1password --quick-access"; }
-
-    // Example volume keys mappings for PipeWire & WirePlumber.
-    //XF86AudioRaiseVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.01+"; }
-    //XF86AudioLowerVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.01-"; }
-    //XF86AudioMute        allow-when-locked=true { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"; }
-    //XF86AudioMicMute     allow-when-locked=true { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"; }
-
-    // audio
-    XF86AudioRaiseVolume   allow-when-locked=true { spawn-sh "swayosd-client --output-volume 1"; }
-    XF86AudioLowerVolume   allow-when-locked=true { spawn-sh "swayosd-client --output-volume -1"; }
-    XF86AudioMute          allow-when-locked=true { spawn-sh "swayosd-client --output-volume mute-toggle"; }
-    //XF86AudioMicMute     allow-when-locked=true { spawn-sh ""; }
-    //XF86MonBrightnessUp  allow-when-locked=true { spawn-sh "swayosd-client --brightness raise"; }
-    //XF86MonBrightnessDown  allow-when-locked=true { spawn-sh "swayosd-client --brightness lower"; }
-
-    // brightness 
-    XF86MonBrightnessUp allow-when-locked=true { spawn "brightnessctl" "--class=backlight" "set" "+10%"; }
-    XF86MonBrightnessDown allow-when-locked=true { spawn "brightnessctl" "--class=backlight" "set" "10%-"; }
 
     // window navigation
     Mod+Tab repeat=false { toggle-overview; }
     Mod+Q repeat=false { close-window; }
-    // Mod+Down  { focus-window-down; }
-    // Mod+Up    { focus-window-up; }
     Mod+Up    { focus-window-or-workspace-up; }
     Mod+Down  { focus-window-or-workspace-down; }
     Mod+Right { focus-column-right; }
@@ -379,13 +338,6 @@ binds {
     Mod+Ctrl+J     { move-window-down; }
     Mod+Ctrl+K     { move-window-up; }
     Mod+Ctrl+L     { move-column-right; }
-
-    // Alternative commands that move across workspaces when reaching
-    // the first or last window in a column.
-    // Mod+J     { focus-window-or-workspace-down; }
-    // Mod+K     { focus-window-or-workspace-up; }
-    // Mod+Ctrl+J     { move-window-down-or-to-workspace-down; }
-    // Mod+Ctrl+K     { move-window-up-or-to-workspace-up; }
 
     Mod+Home { focus-column-first; }
     Mod+End  { focus-column-last; }
@@ -444,9 +396,6 @@ binds {
     Mod+Shift+WheelScrollUp        { focus-column-left; }
     Mod+Ctrl+Shift+WheelScrollDown { move-column-right; }
     Mod+Ctrl+Shift+WheelScrollUp   { move-column-left; }
-
-    // Mod+TouchpadScrollDown { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.02+"; }
-    // Mod+TouchpadScrollUp   { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.02-"; }
 
     Mod+1 { focus-workspace 1; }
     Mod+2 { focus-workspace 2; }
