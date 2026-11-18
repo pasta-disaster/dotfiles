@@ -105,7 +105,7 @@ disabled = false
 format = '[](fg:#363a4f)[ $time ]($style)'
 style = "fg:#b7bdf8 bg:#363a4f"
 time_format = '%T'
-utc_time_offset = '-5'
+utc_time_offset = '-12'
 
 [custom.multiline_b]
 description = "Top line of the multi-line decoration"
