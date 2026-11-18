@@ -205,6 +205,8 @@ split_horizontal = "prefix+minus"
 
 # Background notification popup delivery
 agent_panel_sort = "spaces"
+status_indicators = "symbols"
+show_agent_labels_on_pane_borders = true
 [ui.toast]
 # off = disable pop-up notifications
 # herdr = show in-app toasts
@@ -253,7 +255,7 @@ agent_panel_sort = "spaces"
 # allow_nested = false
 # Experimental local Kitty graphics rendering for attached clients.
 # Requires a Kitty graphics-compatible outer terminal.
-# kitty_graphics = false
+ kitty_graphics = true
 # Save recent pane screen history across full server restarts.
 pane_history = false
 # While prefix mode is active, temporarily switch the macOS host input
@@ -296,6 +298,11 @@ key = "ctrl+alt+/"
 type = "plugin_action"
 command = "nook.toggle-tiny"
 
+[[keys.command]]
+key = "prefix+."
+type = "shell"
+command = "herdr plugin action invoke open-sidebar --plugin herdr-sidebar"
+description = "toggle herdr-sidebar"
 
 #[[keys.command]]
 #key = "prefix+t"
