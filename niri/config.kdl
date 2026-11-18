@@ -104,10 +104,12 @@ overview {
 spawn-at-startup "dms"
 spawn-at-startup "appimagelauncherd"
 spawn-at-startup "kitty"
-spawn-at-startup "kitty"
+//spawn-at-startup "kitty"
 spawn-at-startup "1password"
-spawn-at-startup "cursor"
-spawn-sh-at-startup "ferdium"
+//spawn-at-startup "cursor"
+spawn-at-startup "zed"
+//spawn-sh-at-startup "ferdium"
+spawn-at-startup "slack"
 spawn-sh-at-startup "vesktop"
 spawn-sh-at-startup "signal-desktop"
 spawn-sh-at-startup "obsidian"
@@ -158,8 +160,7 @@ workspace "personal-browser" {
 // === WINDOW RULES ===
 // main screen
 window-rule {
-    match app-id=r#"^ferdium$"# at-startup=true
-    match app-id=r#"^Slack$"# at-startup=true
+    match app-id=r#"^slack$"# at-startup=true
     match app-id=r#"^vesktop$"# at-startup=true
     match app-id=r#"^signal$"# at-startup=true
     open-on-workspace "communication"
@@ -209,9 +210,10 @@ window-rule {
 // force floating windows
 window-rule {
     match app-id=r#"^AppImageLauncher$"# title=r#"Desktop Integration"#
+    match app-id="org.gnome.Calculator"
+    match app-id=r#"^espanso$"#
     open-floating true
 }
-
 
 // block screen capture
 window-rule {
